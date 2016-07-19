@@ -32,6 +32,21 @@ ONE.define('model.Person', {
 
 });
 
+ONE.define('model.Employee', {
+	extends: model.Person,
+
+	// @Override
+	getFullName: function() {
+		return this.super();
+	}
+
+});
+
 var fulano = ONE.new(model.Person, 'Firstname', 'Lastname'); // Instantiation
+var employeeFulano = ONE.new(model.Person, {
+	firstName: "Employee-Firstname",
+	lastName: "Employee-Lastname"
+}); // Instantiation
 alert(fulano.getFullName()); // alert("My full name is Firstname Lastname")
+alert(employeeFulano.getFullName()); // alert("My full name is Employee-Firstname Employee-Lastname")
 ```
